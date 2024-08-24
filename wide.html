@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="./output.css" rel="stylesheet">
+    <title> Image format Converter </title>
+    <style>
+        .star {
+            color: #dfdfd7;
+        }
+        .star.hovered {
+            color: #EAB308;
+        }
+        .star.red {
+            color: red;
+        }
+    </style>
+</head>
+<body id="mainContainer" class="bg-background w-full pt-4 pb-10 md:pr-4 rounded-sm overflow-y-hidden">
+    <div class="flex items-start justify-center gap-20 w-full overflow-x-hidden">
+        <div id="imageContainer" class="w-[300px] h-[350px] mt-10 ml-5">
+        </div>
+        <div class="mt-10 md:px-8">
+            <div id="draganddrop" draggable="true" class="w-[400px] h-[250px] hover:bg-card hover:bg-opacity-30 border border-dashed border-secondary flex items-center justify-center rounded-md cursor-pointer">
+                <input type="file" id="fileInput" class="hidden" accept=".jpg,.jpeg,.png,.webp,.gif,.tiff,.pdf" />
+                <button id="dropzone" class="flex items-center justify-center text-sm gap-2 text-primary px-4 disabled:cursor-not-allowed overflow-clip">
+                    <p class="text-base text-primary font-normal mb-6"> Drag & Drop an image  here or Click to Select </p>
+                </button>
+            </div>
+            <div class="mt-10 w-[400px] flex flex-col items-start">
+                <div class="flex items-center w-full gap-4">
+                    <p class="text-lg text-start text-primary font-light"> Convert to : </p>
+                    <select id="fileFormat" class="w-[100px] bg-card px-3 py-2 text-base text-primary font-light rounded-md focus-visible:outline-none">
+                        <option value="jpeg"> JPEG </option>
+                        <option value="webp"> WEBP </option>
+                        <option value="png"> PNG </option>
+                        <option value="pdf"> PDF </option>
+                        <option value="gif"> GIF </option>
+                    </select>
+                    <button id="start" class="ml-3 hidden pointer-events-none disabled:cursor-not-allowed">
+                        <img src="./start.png" alt="start-button" width="30" height="20"/>
+                    </button>
+                </div>
+                <div id="quality" class="w-[400px] flex items-center gap-2 mt-7">
+                    <p class="text-lg text-primary font-light"> Quality: </p> 
+                    <div class="flex items-center gap-2 mt-1">
+                        <input type="range" min="0" max="100" value="85" step="1" id="qualityRange" class="w-[300px] touch-none cursor-pointer disabled:cursor-not-allowed focus-visible:outline-none"/>
+                        <input type="text" value="85%" disabled id="qualityValue" class="text-base text-primary bg-background border-none focus-visible:outline-none disabled:cursor-default" /> 
+                    </div>
+                </div>
+            </div>
+            <span id="operation-error" class="w-[400px] flex justify-start mt-3"> </span>
+            <div class="pb-8 w-[400px] flex justify-center">
+                <div id="star-widget" class="mt-7 flex flex-col items-start justify-start gap-5">
+                    <h3 class="text-2xl text-main font-semibold ml-14"> Rate us </h3>
+                    <div class="flex space-x-3 pl-3">
+                        <i class="star fa fa-star text-xl cursor-pointer disabled:cursor-not-allowed"></i>
+                        <i class="star fa fa-star text-xl cursor-pointer disabled:cursor-not-allowed"></i>
+                        <i class="star fa fa-star text-xl cursor-pointer disabled:cursor-not-allowed"></i>
+                        <i class="star fa fa-star text-xl cursor-pointer disabled:cursor-not-allowed"></i>
+                        <i class="star fa fa-star text-xl cursor-pointer disabled:cursor-not-allowed"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="wide.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "face_to_sticker",
+  "version": "1.0.0",
+  "description": "A minimalistic sticker generator",
+  "main": "popup.js",
+  "keywords": [
+    "stciker",
+    "AI"
+  ],
+  "author": "Harun Bekri",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}

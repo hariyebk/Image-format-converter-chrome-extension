@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Final Result </title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div id="result-container"></div>
+    <script> 
+        // Listening for an event where the image is sent
+        chrome.runtime.onMessage.addListener(function(request) {
+        if (request.action === 'displayImage'){
+            // Set the image URL
+            const container = document.getElementById("result-container")
+            container.innerHTML = `
+            <img src=${request.image} alt="ai-generated-image" />
+            `
+        }
+        });
+    </script>
+</body>
+</html>
